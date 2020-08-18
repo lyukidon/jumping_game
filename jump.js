@@ -5,7 +5,7 @@ let enemyOne;
 function startGame() {
     myGameArea.start();
     myGamePiece = new MainPlayer(30, 30, "red", 0, 0);
-    enemyOne = new Enemies(10, 15, 50, 0, 2 * Math.PI)
+    enemyOne = new Enemies(100, 150, 50, 0, 2 * Math.PI, "blue");
 }
 
 // 게임 화면
@@ -31,17 +31,19 @@ function MainPlayer(width, height, color, x, y) {
   ctx.fillRect(this.x, this.y, this.width, this.height);
 }
 
-function Enemies(radius, color, angleS, angleE, x, y) {
-    this.radius = radius;
-    this.color = color;
-    this.angleS = angleS;
-    this.angleE = angleE;
+function Enemies(x, y, radius, angleS, angleE, color) {
     this.x = x;
     this.y = y;
+    this.radius = radius;
+    this.angleS = angleS;
+    this.angleE = angleE;
+    this.color = color;
+
     ctx = myGameArea.context;
-    ctx.fillStyle = color;
+    
     ctx.beginPath();
-    ctx.arc(this.x, this.y, this.angleS, this.angleE, 2 * Math.PI);
+    ctx.fillStyle = color;
+    ctx.arc(this.x, this.y, this.radius, this.angleS, this.angleE);
     ctx.closePath();
     ctx.fill();
 }
