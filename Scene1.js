@@ -15,21 +15,21 @@ class Scene1 extends Phaser.Scene{
         this.background.setOrigin(0,0);
 
         //Player
-        var player = this.physics.add.sprite(config.width/2-300, config.height/2, 'player');
-        player.play('thrust');
+        this.player = this.physics.add.sprite(config.width/2-300, config.height/2, 'player');
+        this.player.play('thrust');
         this.cursorKeys = this.input.keyboard.createCursorKeys();
 
         //spacebar
-        this.spaceKey = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+        // this.spaceKey = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
     }
 
     update(){
         this.background.tilePositionX += 0.3;
 
         //SPACEBAR
-        if (this.spaceKey.isDown){
-            player
-        }
+        // if (this.spaceKey.isDown){
+        //     player
+        // }
     }
 
 }
